@@ -16,7 +16,7 @@ import '../models/QuizQuestion.dart';
       'By combining widgets in code',
       'By combining widgets in a visual editor',
       'By defining widgets in config files',
-      'By using XCode for iOS and Android Studio for Android',
+      'By using XCode for iOS and Android Studio for Android and soift for IOS',
     ],
   ),
   QuizQuestion(

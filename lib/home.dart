@@ -7,9 +7,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: const BoxDecoration(
-        gradient: LinearGradient(colors: [Colors.blueAccent, Colors.lightBlue]),
-      ),
+      color: Colors.indigo,
       child: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -27,6 +25,7 @@ class HomePage extends StatelessWidget {
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 20,
+                inherit: false,
               ),
             ),
             const SizedBox(
@@ -35,8 +34,10 @@ class HomePage extends StatelessWidget {
             OutlinedButton.icon(
               style: const ButtonStyle(
                 elevation: WidgetStatePropertyAll(20.0),
+                
+
               ),
-              icon: const Icon(Icons.arrow_forward_ios),
+              icon: const Icon(Icons.arrow_forward_ios,color: Colors.white,),
               onPressed: () {
                 Navigator.of(context).push(MaterialPageRoute(
                   builder: (context) => Questions(),
