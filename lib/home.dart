@@ -39,7 +39,7 @@ class HomePage extends StatelessWidget {
               icon: const Icon(Icons.arrow_forward_ios),
               onPressed: () {
                 Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => const Questions(),
+                  builder: (context) => Questions(),
                 ));
               },
               label: const Text(

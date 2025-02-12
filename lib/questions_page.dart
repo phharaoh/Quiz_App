@@ -1,8 +1,11 @@
+import 'data/questions.dart';
 import 'package:flutter/material.dart';
 import 'package:quiz_app/answer_button.dart';
 
 class Questions extends StatelessWidget {
-  const Questions({super.key});
+  Questions({super.key});
+
+  final currentQuestion = questions[0];
 
   @override
   Widget build(BuildContext context) {
@@ -12,20 +15,20 @@ class Questions extends StatelessWidget {
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          AnswerButton('Answer..1', () {}),
-          const SizedBox(
-            height: 15,
+        children: <Widget>[
+          Text(
+            currentQuestion.text,
+            style: const TextStyle(color: Colors.white),
           ),
-          AnswerButton('Answer..2', () {}),
           const SizedBox(
-            height: 15,
+            height: 20,
           ),
-          AnswerButton('Answer..3', () {}),
-          const SizedBox(
-            height: 15,
-          ),
-          AnswerButton('Answer..4', () {}),
+          ...currentQuestion.answers.map((e) {
+            return Container(
+              margin: const EdgeInsets.all(10),
+              child: AnswerButton(e, () {}),
+            );
+          })
         ],
       ),
     );
