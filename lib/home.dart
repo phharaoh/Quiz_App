@@ -1,8 +1,16 @@
+import 'dart:developer';
 import 'questions_page.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+  HomePage({super.key});
+  final List<String> selectedAnswer = [];
+
+  void chosesAnswer(String answer) {
+    log(answer);
+    selectedAnswer.add(answer);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,18 +42,19 @@ class HomePage extends StatelessWidget {
             OutlinedButton.icon(
               style: const ButtonStyle(
                 elevation: WidgetStatePropertyAll(20.0),
-                
-
               ),
-              icon: const Icon(Icons.arrow_forward_ios,color: Colors.white,),
+              icon: const Icon(
+                Icons.arrow_forward_ios,
+                color: Colors.white,
+              ),
               onPressed: () {
                 Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => Questions(),
+                  builder: (context) => Questions(chosesAnswer),
                 ));
               },
-              label: const Text(
+              label: Text(
                 "Start Learning",
-                style: TextStyle(
+                style: GoogleFonts.sigmar(
                   color: Colors.white,
                   fontSize: 20,
                 ),
