@@ -19,13 +19,9 @@ class _QuestionsState extends State<Questions> {
 
   void answerQuestion(String answer) {
     widget.onSelectedAnswer(answer);
-    
+
     setState(() {
       currentIndixQuestion++;
-
-      // for (var currentIndixQuestion = 0; currentIndixQuestion < 6;) {
-      //   currentIndixQuestion++;
-      // }
     });
   }
 

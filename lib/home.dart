@@ -1,15 +1,33 @@
+import 'resualt.dart';
 import 'dart:developer';
 import 'questions_page.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:quiz_app/data/questions.dart';
 
-class HomePage extends StatelessWidget {
-  HomePage({super.key});
-  final List<String> selectedAnswer = [];
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
 
-  void chosesAnswer(String answer) {
-    log(answer);
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  List<String> selectedAnswer = [];
+
+  void chosesAnswer(BuildContext context, String answer) {
     selectedAnswer.add(answer);
+    if (selectedAnswer.length == questions.length) {
+      setState(() {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => Resualt(selectedAnswer),
+          ),
+        );
+        selectedAnswer = [];
+      });
+    }
+    log(selectedAnswer.toString());
   }
 
   @override
@@ -49,13 +67,15 @@ class HomePage extends StatelessWidget {
               ),
               onPressed: () {
                 Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => Questions(chosesAnswer),
+                  builder: (context) =>
+                      Questions((answer) => chosesAnswer(context, answer)),
                 ));
               },
-              label: Text(
+              label: const Text(
                 "Start Learning",
-                style: GoogleFonts.sigmar(
+                style: TextStyle(
                   color: Colors.white,
+                  inherit: false,
                   fontSize: 20,
                 ),
               ),
