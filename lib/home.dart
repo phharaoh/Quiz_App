@@ -57,12 +57,16 @@ class _HomePageState extends State<HomePage> {
             const SizedBox(
               height: 35,
             ),
-            OutlinedButton.icon(
-              style: const ButtonStyle(
-                elevation: WidgetStatePropertyAll(20.0),
-              ),
+            ElevatedButton.icon(
+              style: ButtonStyle(
+                  backgroundColor: WidgetStateProperty.all(Colors.black54),
+                  shape: WidgetStateProperty.all(
+                    RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+                  )),
               icon: const Icon(
-                Icons.arrow_forward_ios,
+                Icons.start_outlined,
                 color: Colors.white,
               ),
               onPressed: () {
