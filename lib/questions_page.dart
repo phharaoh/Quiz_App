@@ -21,7 +21,9 @@ class _QuestionsState extends State<Questions> {
     widget.onSelectedAnswer(answer);
 
     setState(() {
-      currentIndixQuestion++;
+      if (currentIndixQuestion < questions.length - 1) {
+        currentIndixQuestion++;
+      }
     });
   }
 

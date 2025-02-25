@@ -24,7 +24,7 @@ class _HomePageState extends State<HomePage> {
             builder: (context) => Resualt(selectedAnswer),
           ),
         );
-        selectedAnswer = [];
+        // selectedAnswer = [];
       });
     }
     log(selectedAnswer.toString());

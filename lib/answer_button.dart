@@ -5,19 +5,26 @@ class AnswerButton extends StatelessWidget {
 
   final String answertext;
   final void Function() onpressed;
- 
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: onpressed,
       style: OutlinedButton.styleFrom(
-        backgroundColor: Colors.blue,
+        backgroundColor: Colors.black54,
         padding: const EdgeInsets.all(10),
-        shape: const RoundedRectangleBorder(),
+        shape:
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(18.0)),
         foregroundColor: Colors.white,
       ),
-      child: Text(answertext,textAlign: TextAlign.center,),
+      child: Text(
+        answertext,
+        textAlign: TextAlign.center,
+        style: const TextStyle(
+          color: Colors.white,
+          fontSize: 20,
+        ),
+      ),
     );
   }
 }
